@@ -12,7 +12,7 @@
 
 ___
 
-[![Click for README - French](https://img.shields.io/badge/Click_for_README-Français-red)](README_FRENCH.md)
+[![Click for README - English](https://img.shields.io/badge/Click_for_README-English-red)](README.md)
 
 ---
 
@@ -31,19 +31,20 @@ aspects of Pokémon data and includes functions to obtain lists of all Pokémon 
 - Windows : `py -m pip install --upgrade Tyradex`
 
 ## Library
-- from Tyradex import Pokemon
-- from Tyradex import Generation
-- from Tyradex import Types
+from Tyradex import Pokemon
+from Tyradex import Generation
+from Tyradex import Types
 
 ## Command line
-- py -m Tyradex pokemon 26
+py -m Tyradex pokemon 26
+
 
 # Dependencies
 
 # API Reference
 
 # Contributors
-### API
-### Python Adaptation
+## API
+## Python Adaptation
 
 # Licence
