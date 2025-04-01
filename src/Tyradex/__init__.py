@@ -12,7 +12,8 @@ def _call(point):
         def __init__(self, path):
             # Initialize API_Call with a specified path
             self.path = pathlib.Path(
-                str(pathlib.Path(__file__).parent.parent.absolute()).replace('\\', '/') + '/.cache/' + path + ".json")
+                os.getenv('USERPROFILE').replace('\\', '/') + '/.cache/Tyradex/call/' + path + ".json"
+            )
             self.url = f"https://tyradex.tech/api/v1/{path}"
 
             # Create necessary directories for cache if they don't exist
@@ -220,11 +221,7 @@ class Type:
 
     @property
     def id(self) -> int:
-        try:
-            return self.__data['id']
-        except KeyError as err:
-            print(self.__data.keys())
-            raise err
+        return self.__data['id']
 
     @property
     def name(self):
@@ -555,12 +552,9 @@ class Evolutions:
         """
         if __data is not None:
             # If evolution data is provided, create lists for pre-evolutions, next-evolutions, and mega-evolutions
-            self.pre: list = [Evolution(data) for data in __data['pre']] if 'pre' in __data and __data[
-                'pre'] is not None else []  # List of pre-evolutions
-            self.next: list = [Evolution(data) for data in __data['next']] if 'next' in __data and __data[
-                'next'] is not None else []  # List of next-evolutions
-            self.mega: list = [Mega(data) for data in __data['mega']] if 'mega' in __data and __data[
-                'mega'] is not None else []  # List of mega-evolutions
+            self.pre: list = [Evolution(data) for data in __data['pre']] if 'pre' in __data else []  # List of pre-evolutions
+            self.next: list = [Evolution(data) for data in __data['next']] if 'next' in __data else []  # List of next-evolutions
+            self.mega: list = [Mega(data) for data in __data['mega']] if 'mega' in __data else []  # List of mega-evolutions
         else:
             # If no evolution data is provided, set all lists to empty
             self.pre: list = []  # List of pre-evolutions
@@ -590,10 +584,7 @@ class Evolution:
         """
         self.pokedex_id: int = __data['pokedexId']  # Pokédex ID of the evolved Pokémon
         self.name: str = __data['name']  # Name of the evolved Pokémon
-        if self.pokedex_id in [252, 496]:
-            self.condition: str = __data['condition:']  # Evolution condition for specific cases
-        else:
-            self.condition: str = __data['condition'] if 'condition' in __data else ''  # Evolution condition
+        self.condition: str = __data['condition'] if 'condition' in __data else ''  # Evolution condition
 
     def __str__(self):
         """Return a string representation of the Evolution object.
