@@ -1,5 +1,8 @@
 import Tyradex
 
+pokemon = Tyradex.Pokemon.get(801)
+print(f"{pokemon.name} :\n\tFrench: {pokemon.name.fr}\n\tJapan : {pokemon.name.jp}")
+
 # Get the Pokémon N°801.
 pokemon = Tyradex.Pokemon.get(801)
 # Show its French name and its Japan name.

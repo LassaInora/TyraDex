@@ -18,23 +18,56 @@ ___
 
 </div>
 
-# Overview
-This Python script interacts with the [Tyradex API](https://tyradex.app/) to retrieve detailed information about 
-Pokémon, Generation and Pokémon types. It is designed to provide easy access to details such as Pokédex ID, generation, 
-category, statistics, etc., for individual Pokémon or types. The script is organized into classes representing different 
-aspects of Pokémon data and includes functions to obtain lists of all Pokémon and types.
+# Entrée en la matière
 
-# How to use
+Ce script Python interagit avec l'[API Tyradex](https://tyradex.app/) pour récupérer des informations détaillées sur les
+Pokémon, leur génération et leurs types. Il est conçu pour faciliter l'accès à des informations pour chaque Pokémon ou
+type telles que l'ID Pokédex, la génération, la catégorie, les statistiques, etc...  
+Le script est organisé en classes représentant différents aspects des données Pokémon et inclut des fonctions permettant
+d'obtenir les informations de façon claire et optimisée.
 
+# Comment l'utiliser
 ## Installation
 - Unix/ macOS : `python3 -m pip install --upgrade Tyradex`
 - Windows : `py -m pip install --upgrade Tyradex`
+-
 
-## Library Interface
-## Command Line Interface
-# Dependencies
-# API Reference
-# Contributors
-## API
-## Python Adaptation
+## Interface Librairie
+
+La librairie Tyradex pour Python propose une interface simple et intuitive pour une utilisation dans vos différents
+projets.  
+→ [Comment utiliser la librairie ?](https://github.com/LassaInora/Tyradex/wiki/Labrary-Interface)
+
+## Interface en ligne de commande
+
+Cette librairie possède également une interface en ligne de commande renvoyer les données json brut de l'API en
+conservant l'avantage du cache de l'adaptation Python.  
+→ [Comment utiliser la CLI ?](https://github.com/LassaInora/Tyradex/wiki/Command-Line-Interface)
+
+# Dépendance
+
+Cette librairie utilise les dépendances
+
+* [requests](https://requests.readthedocs.io/en/latest/) créé par [Kenneth Reitz](https://github.com/kennethreitz)
+* [pratik](https://github.com/LassaInora/Pratik) créé par [LassaInora](https://github.com/LassaInora)
+
+# Référence de l'API
+
+* Le script interagit avec l'API Tyradex hébergée sur https://tyradex.app/api/v1/.
+* Consultez la [documentation de l'API](https://tyradex.app/docs) pour plus de détails sur les points d'extrémité
+  disponibles et la structure des données.
+
+# Contributeurs
+
+### API créée par
+
+* [Yarkis01](https://github.com/Yarkis01)
+* [Ashzuu](https://github.com/Ashzuu)
+
+### Adaptation Python par
+
+* [LassaInora](https://github.com/LassaInora)
+
 # Licence
+
+Ce projet est sous licence [MIT License](https://github.com/LassaInora/Tyradex/blob/main/LICENSE).
