@@ -4,8 +4,9 @@ ABC module
 All schema for Tyradex.
 """
 import locale
+import pathlib
 
-DEFAULT_IMG = "https://raw.githubusercontent.com/LassaInora/Tyradex/20545b1b15d72564987c8dcebc39501e91ca5f40/assets/img/clone.png"
+DEFAULT_IMG = pathlib.Path(__file__).parent / "assets/img/clone.png"
 
 class NameModel:
     """ A multilingual name
@@ -28,13 +29,12 @@ class NameModel:
         self._jp = data.get('jp')
 
     def __str__(self):
-        match locale.getlocale()[0][:2]:
-            case "fr":
-                return ', '.join(self._fr) if isinstance(self._fr, list) else str(self._fr)
-            case "ja":
-                return ', '.join(self._jp) if isinstance(self._jp, list) else str(self._jp)
-            case _:
-                return ', '.join(self._en) if isinstance(self._en, list) else str(self._en)
+        if (l := locale.getlocale()[0][:2]) == "fr":
+            return ', '.join(self._fr) if isinstance(self._fr, list) else str(self._fr)
+        elif l == "ja":
+            return ', '.join(self._jp) if isinstance(self._jp, list) else str(self._jp)
+        else:
+            return ', '.join(self._en) if isinstance(self._en, list) else str(self._en)
 
     @property
     def fr(self):
@@ -453,12 +453,12 @@ class EvolutionModel:
             next (list[dict]): Next-Evolutions.
             mega (list[dict]): Mega-Evolutions.
         """
-        pres = data.get('pre')
-        self._pre = [PokemonEvolutionModel(**pre) for pre in (pres if pres else [])]
-        nexts = data.get('next')
-        self._next = [PokemonEvolutionModel(**next) for next in (nexts if nexts else [])]
-        megas = data.get('mega')
-        self._mega = [MegaEvolutionModel(**mega) for mega in (megas if megas else [])]
+        list_pre = data.get('pre')
+        self._pre = [PokemonEvolutionModel(**pre) for pre in (list_pre if list_pre else [])]
+        list_next = data.get('next')
+        self._next = [PokemonEvolutionModel(**next_) for next_ in (list_next if list_next else [])]
+        list_mega = data.get('mega')
+        self._mega = [MegaEvolutionModel(**mega) for mega in (list_mega if list_mega else [])]
 
     @property
     def pre(self):

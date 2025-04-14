@@ -1,11 +1,5 @@
-try:
-    import API as API
-except ModuleNotFoundError:
-    import src.API as API
-try:
-    import abc as abc
-except ModuleNotFoundError:
-    import src.abc as abc
+import Tyradex.API as API
+import Tyradex.abc as abc
 
 __version__ = API.VERSION
 
@@ -152,7 +146,7 @@ class Pokemon:
         """ Sprites.
 
         Returns:
-            DetailedSpriteModel : Sprites.
+            abc.DetailedSpriteModel : Sprites.
         """
         return self._sprites
 
@@ -197,7 +191,7 @@ class Pokemon:
         """ Evolutions.
         
         Returns:
-            
+            abc.EvolutionModel: Pokémon's evolutions.
         """
         return self._evolutions
     
@@ -224,7 +218,7 @@ class Pokemon:
         """ Egg groups
 
         Returns:
-
+            abc.EggGroupModel: Egg groups.
         """
         return self._egg_groups
 
@@ -233,7 +227,7 @@ class Pokemon:
         """ Sexe
         
         Returns:
-            
+            abc.SexeModel: Sexes.
         """
         return self._sexe
     
@@ -242,7 +236,7 @@ class Pokemon:
         """ Catch rate
 
         Returns:
-
+            int: Catch rate.
         """
         return self._catch_rate
 
@@ -251,7 +245,7 @@ class Pokemon:
         """ Level 100
         
         Returns:
-            
+            int: How many xp for level 100.
         """
         return self._level_100
     
@@ -260,7 +254,7 @@ class Pokemon:
         """ Formes
 
         Returns:
-
+            list[abc.RegionalFormModel]: Formes.
         """
         return self._formes
 

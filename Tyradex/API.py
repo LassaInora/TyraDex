@@ -10,13 +10,13 @@ import requests
 try:
     import TyradexErrors as TyradexErrors
 except ModuleNotFoundError:
-    import src.TyradexErrors as TyradexErrors
+    import Tyradex.TyradexErrors as TyradexErrors
 try:
-    import tdx_file as TDXFile
+    from tdx_file import TDXFile
 except ModuleNotFoundError:
-    import src.tdx_file as TDXFile
+    from Tyradex.tdx_file import TDXFile
 
-with open('../metadata.json', 'r') as f:
+with open(pathlib.Path(__file__).parent / 'metadata.json', 'r') as f:
     _METADATA = json.load(f)
     VERSION = 'Tyradex for Python version {version} on {os} {os_release} ({os_version})'.format(
         version=_METADATA['version'],
@@ -72,7 +72,7 @@ class Tyradex:
                     "message": request.reason
                 }
             if isinstance(rjson, dict) and rjson.get('status') == 404:
-                src.TyradexErrors.PageNotFound(endpoint).print()
+                TyradexErrors.PageNotFound(endpoint).print()
                 return None
             else:
                 cache.update(request.json())

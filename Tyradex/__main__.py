@@ -5,7 +5,7 @@ import sys
 try:
     import API as API
 except ModuleNotFoundError:
-    import src.API as API
+    import Tyradex.API as API
 
 def help_message():
     print("Usage:")
