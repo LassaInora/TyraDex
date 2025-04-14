@@ -30,21 +30,11 @@ aspects of Pokémon data and includes functions to obtain lists of all Pokémon 
 - Unix/ macOS : `python3 -m pip install --upgrade Tyradex`
 - Windows : `py -m pip install --upgrade Tyradex`
 
-## Library
-from Tyradex import Pokemon
-from Tyradex import Generation
-from Tyradex import Types
-
-## Command line
-py -m Tyradex pokemon 26
-
-
+## Library Interface
+## Command Line Interface
 # Dependencies
-
 # API Reference
-
 # Contributors
 ## API
 ## Python Adaptation
-
 # Licence

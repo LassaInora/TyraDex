@@ -1,8 +1,13 @@
-import json
+try:
+    import API as API
+except ModuleNotFoundError:
+    import src.API as API
+try:
+    import abc as abc
+except ModuleNotFoundError:
+    import src.abc as abc
 
-import src.API as API
-import src.abc as abc
-
+__version__ = API.VERSION
 
 class Pokemon:
     """ A Pokémon
