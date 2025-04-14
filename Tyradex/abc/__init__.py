@@ -4,9 +4,8 @@ ABC module
 All schema for Tyradex.
 """
 import locale
-import pathlib
 
-DEFAULT_IMG = pathlib.Path(__file__).parent / "assets/img/clone.png"
+DEFAULT_IMG = "https://raw.githubusercontent.com/LassaInora/Tyradex/refs/heads/images/clone.png"
 
 class NameModel:
     """ A multilingual name

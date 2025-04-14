@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Logo Pokémon](https://raw.githubusercontent.com/LassaInora/Tyradex/refs/heads/main/assets/img/logo.png)](https://tyradex.app/)
+[![Logo Pokémon](https://raw.githubusercontent.com/LassaInora/Tyradex/refs/heads/images/logo.png)](https://tyradex.app/)
 # Tyradex for Python
 [![LassaInora - Tyradex](https://img.shields.io/static/v1?label=LassaInora&message=Tyradex&color=yellow&logo=github)](https://github.com/LassaInora/Tyradex "Go to GitHub repo")
 [![GitHub tag](https://img.shields.io/github/tag/LassaInora/Tyradex?include_prereleases=&sort=semver&color=orange)](https://github.com/LassaInora/Tyradex/releases/)

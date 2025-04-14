@@ -1,5 +1,6 @@
 import Tyradex.API as API
 import Tyradex.abc as abc
+from Tyradex.TyradexErrors import TyradexError
 
 __version__ = API.VERSION
 
@@ -279,16 +280,19 @@ class Generation:
 
     @classmethod
     def get(cls, generation):
-        """ Get the list of Pokémon of a generation.
+        """ Get the Generation.
 
         Args:
             generation (int): The generation number.
 
         Returns:
-            list[Pokemon]: The list of Pokémon of a generation.
+            Generation: The Generation's information.
         """
-        response = API.Tyradex.call('gen/{id_}'.format(id_=generation))
-        return [Pokemon(**pokemon_data) for pokemon_data in (response if response else [])]
+        generations = cls.all()
+        if 0 < generation <= len(generations):
+            return generations[generation - 1]
+        else:
+            raise TyradexError('Generation {generation} does not exist.'.format(generation=generation))
 
     def __init__(self, **data):
         """ Generation.
@@ -301,6 +305,9 @@ class Generation:
         self._generation = generation if (generation := data.get('generation')) else -1
         self._from = from_ if (from_ := data.get('from')) else -1
         self._to = to if (to := data.get('to')) else -1
+
+        raw_pokemons = API.Tyradex.call('gen/{id_}'.format(id_=self._generation))
+        self._pokemons = [Pokemon(**pokemon_data) for pokemon_data in (raw_pokemons if raw_pokemons else [])]
 
     def __str__(self):
         return 'Gen {gen}'.format(gen=self._generation)
@@ -334,6 +341,15 @@ class Generation:
             int: Which index ended
         """
         return self._to
+
+    @property
+    def pokemons(self):
+        """ Pokémon.
+
+        Returns:
+            list[Pokemon]: Pokémon.
+        """
+        return self._pokemons
 
 class Type:
     """ Type.
