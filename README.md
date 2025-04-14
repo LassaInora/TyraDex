@@ -65,4 +65,4 @@ This library uses dependencies
 
 # Licence
 
-This project is licensed under the [MIT License](https://github.com/LassaInora/Tyradex/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/LassaInora/Tyradex/blob/V1.x.x/LICENSE).

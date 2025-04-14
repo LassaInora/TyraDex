@@ -70,4 +70,4 @@ Cette librairie utilise les dépendances
 
 # Licence
 
-Ce projet est sous licence [MIT License](https://github.com/LassaInora/Tyradex/blob/main/LICENSE).
+Ce projet est sous licence [MIT License](https://github.com/LassaInora/Tyradex/blob/V1.x.x/LICENSE).
